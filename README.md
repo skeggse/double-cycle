@@ -139,6 +139,38 @@ cycle.removeKing('123');
 // 234/bcd/{thing: 4}
 ```
 
+Extended Example
+================
+
+Let's say you have a bunch of Node processes, and each of which exposes a number of services. You're in charge of discovering said processes and assigning them unique identifiers, but once you have their capabilities you can easily keep an up-to-date registry of known services with round-robin access using double-cycle:
+
+```js
+var create = require('double-cycle');
+var registry = create();
+
+// call this when you discover a new process
+var discovered = function(processid, capabilities) {
+  registry.replaceKing(processid, capabilities);
+};
+
+// call this when a process's capabilities change
+var updated = function(processid, capabilities) {
+  registry.updateKing(processid, capabilities);
+};
+
+// call this when a process is shutting down
+var destroyed = function(processid) {
+  registry.removeKing(processid);
+};
+
+// call this when you want to communicate with an arbitrary
+var dispatch = function(service) {
+  return registry.nextQueen(service);
+};
+```
+
+All of these functions really just pass through to `registry`'s methods, so they're unnecessary. They simply exist to demonstate the use-case.
+
 More Examples
 =============
 
