@@ -45,6 +45,8 @@ insert(king, queen, object)
 
 Inserts an object into the datastructure (no duplicate checking), and indexes the object by the `king` and `queen` parameters.
 
+Time Complexity: O(1)
+
 ```js
 var create = require('double-cycle');
 var cycle = create();
@@ -65,6 +67,8 @@ replaceKing|Queen(king|queen, object)
 Replaces all entries with the entries in the provided object by the given king or queen index. This will add, remove or update entries as it sees fit, and it guarantees that all entries will be unique as far as the indexes are concerned.
 
 The provided object consists of keys representing a queen index and values representing the corresponding data to be stored.
+
+Time Complexity: O(N)
 
 ```js
 var create = require('double-cycle');
@@ -95,6 +99,8 @@ Retrieves the next entry in the sequence for the given king of queen. This effec
 
 This function does not alter the entries stored in the structure, it only rotates the relevant chain.
 
+Time Complexity: O(1)
+
 ```js
 var create = require('double-cycle');
 var cycle = create();
@@ -113,6 +119,8 @@ removeKing|Queen(king|queen)
 ----------------------------
 
 Removes all entries indexed by the given king or queen.
+
+Time Complexity: O(N)
 
 ```js
 var create = require('double-cycle');
