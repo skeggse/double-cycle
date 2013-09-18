@@ -1,0 +1,40 @@
+{
+  "name": "double-cycle",
+  "version": "0.1.0",
+  "author": "Eli Skeggs <skeggse@gmail.com>",
+  "description": "a specialized datastructure with double indexing and queue-based entry cycling",
+  "main": "./index",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skeggse/double-cycle.git"
+  },
+  "homepage": "https://github.com/skeggse/double-cycle",
+  "bugs": "https://github.com/skeggse/double-cycle/issues",
+  "keywords": [
+    "double-cycle",
+    "double",
+    "cycle",
+    "index",
+    "indexes",
+    "indexing",
+    "data",
+    "structure",
+    "datastructure"
+  ],
+  "devDependencies": {
+    "expect.js": "~0.2.0",
+    "mocha": "~1.13.0"
+  },
+  "licenses": [
+    {
+      "type": "unlicense",
+      "url": "https://github.com/skeggse/double-cycle/blob/master/UNLICENSE"
+    }
+  ],
+  "engines": {
+    "node": "*"
+  }
+}
