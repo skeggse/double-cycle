@@ -111,6 +111,27 @@ describe('DoubleCycle', function() {
     });
   });
 
+  describe('#last', function() {
+    it('should return the last-used key or undefined', function() {
+      cycle.insert('123', 'abc', {thing: 1});
+      cycle.insert('123', 'bcd', {thing: 2});
+      cycle.insert('234', 'abc', {thing: 3});
+      cycle.insert('234', 'bcd', {thing: 4});
+
+      cycle.nextKing('123');
+      expect(cycle.lastQueen('123')).to.equal('bcd');
+      expect(cycle.lastQueen('123')).to.equal('bcd');
+      cycle.nextKing('123');
+      expect(cycle.lastQueen('123')).to.equal('abc');
+
+      cycle.nextQueen('abc');
+      expect(cycle.lastKing('abc')).to.equal('234');
+      expect(cycle.lastKing('abc')).to.equal('234');
+      cycle.nextQueen('abc');
+      expect(cycle.lastKing('abc')).to.equal('123');
+    });
+  });
+
   describe('#remove', function() {
     it('should remove all relevant entries', function() {
       var things = new Array(4);

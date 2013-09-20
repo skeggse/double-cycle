@@ -115,6 +115,29 @@ cycle.nextKing('123'); // {thing: 1}
 cycle.nextKing('123'); // {thing: 2}
 ```
 
+lastKing|Queen(queen|king)
+--------------------------
+
+Retrieves the last used king or queen for the given queen or king.
+
+Time Complexity: O(1)
+
+```js
+var create = require('double-cycle');
+var cycle = create();
+
+cycle.insert('123', 'abc', {thing: 1});
+cycle.insert('123', 'bcd', {thing: 2});
+cycle.insert('234', 'abc', {thing: 3});
+cycle.insert('234', 'bcd', {thing: 4});
+
+cycle.nextKing('123'); // {thing: 2}
+cycle.lastQueen('123'); // 'bcd'
+
+cycle.nextQueen('abc'); // {thing: 3}
+cycle.lastKing('abc'); // '234'
+```
+
 removeKing|Queen(king|queen)
 ----------------------------
 
