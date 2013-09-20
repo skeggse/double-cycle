@@ -1,6 +1,6 @@
 {
   "name": "double-cycle",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Eli Skeggs <skeggse@gmail.com>",
   "description": "a specialized datastructure with double indexing and queue-based entry cycling",
   "main": "./index",

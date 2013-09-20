@@ -139,6 +139,33 @@ cycle.removeKing('123');
 // 234/bcd/{thing: 4}
 ```
 
+metaKing|Queen(king|queen, meta)
+--------------------------------
+
+Store metadata about the king or queen.
+
+```js
+var create = require('double-cycle');
+var cycle = create();
+
+cycle.insert('123', 'abc', {thing: 1});
+cycle.insert('123', 'bcd', {thing: 2});
+cycle.insert('234', 'abc', {thing: 3});
+cycle.insert('234', 'bcd', {thing: 4});
+
+cycle.metaKing('123', 'hello');
+cycle.metaKing('123'); // => 'hello'
+
+cycle.removeKing('123');
+cycle.metaKing('123'); // => undefined
+
+cycle.metaKing('234', 'maybe');
+cycle.removeQueen('bcd');
+cycle.metaKing('234'); // => 'maybe'
+cycle.removeQueen('abc');
+cycle.metaKing('234'); // => 'maybe'
+```
+
 Extended Example
 ================
 
