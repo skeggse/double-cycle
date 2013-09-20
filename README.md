@@ -144,6 +144,8 @@ metaKing|Queen(king|queen, meta)
 
 Store metadata about the king or queen.
 
+Time Complexity: O(1)
+
 ```js
 var create = require('double-cycle');
 var cycle = create();
@@ -163,7 +165,7 @@ cycle.metaKing('234', 'maybe');
 cycle.removeQueen('bcd');
 cycle.metaKing('234'); // => 'maybe'
 cycle.removeQueen('abc');
-cycle.metaKing('234'); // => 'maybe'
+cycle.metaKing('234'); // => undefined
 ```
 
 Extended Example

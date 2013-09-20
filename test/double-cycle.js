@@ -143,4 +143,28 @@ describe('DoubleCycle', function() {
       expect(cycle.nextKing('234')).to.equal(things[2]);
     });
   });
+
+  describe('#meta', function() {
+    it('should stick around appropriately', function() {
+      cycle.insert('123', 'abc', {thing: 1});
+      cycle.insert('123', 'bcd', {thing: 2});
+      cycle.insert('234', 'abc', {thing: 3});
+      cycle.insert('234', 'bcd', {thing: 4});
+
+      cycle.metaKing('123', 'hello');
+      expect(cycle.metaKing('123')).to.equal('hello');
+      cycle.metaKing('123', 'things');
+      expect(cycle.metaKing('123')).to.equal('things');
+
+      cycle.removeQueen('abc');
+      expect(cycle.metaKing('123')).to.equal('things');
+      cycle.removeQueen('bcd');
+      expect(cycle.metaKing('123')).to.equal(undefined);
+
+      cycle.removeKing('234');
+      expect(cycle.metaKing('123')).to.equal(undefined);
+      cycle.removeKing('123');
+      expect(cycle.metaKing('123')).to.equal(undefined);
+    });
+  });
 });
