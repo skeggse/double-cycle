@@ -47,6 +47,17 @@ describe('DoubleCycle', function() {
   });
 
   describe('#replace', function() {
+    it('should insert where none exist', function() {
+      var things = new Array(2);
+      cycle.replaceKing('123', {
+        'abc': things[0] = {thing: 1},
+        'bcd': things[1] = {thing: 2}
+      });
+
+      expect(cycle.nextKing('123')).to.equal(things[1]);
+      expect(cycle.nextKing('123')).to.equal(things[0]);
+    });
+
     it('should replace the specified entries', function() {
       var things = new Array(4);
       cycle.insert('123', 'abc', things[0] = {thing: 1});
