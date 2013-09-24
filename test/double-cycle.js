@@ -198,5 +198,14 @@ describe('DoubleCycle', function() {
       cycle.removeKing('123');
       expect(cycle.metaKing('123')).to.equal(undefined);
     });
+
+    it('should preserve insert', function() {
+      var thing = {thing: 1};
+      cycle.metaKing('123', {test: true});
+      cycle.insert('123', 'abc', thing);
+
+      expect(cycle.nextKing('123')).to.equal(thing);
+      expect(cycle.nextQueen('abc')).to.equal(thing);
+    });
   });
 });
