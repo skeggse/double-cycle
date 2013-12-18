@@ -1,6 +1,8 @@
 double-cycle
 ============
 
+[![Build Status](https://travis-ci.org/skeggse/double-cycle.png)](https://travis-ci.org/skeggse/double-cycle)
+
 A specialized datastructure with double indexing and queue-based entry cycling.
 
 _Note:_ the indexes are not really unique, and inserting a single entry into the structure which already exists in the structure will create duplicates. To avoid this, you can use the `replaceKing` or `replaceQueen` methods, which force an entire king or queen chain to match the provided mappings.
